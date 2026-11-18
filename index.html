@@ -942,7 +942,7 @@ async function processPayment() {
 
     try {
         const amountElement = document.getElementById('checkout-amount');
-        if (!amountElement) throw new Error("Não foi possível encontrar o valor da doação na tela.");
+        if (!amountElement) throw new Error("Elemento 'checkout-amount' não encontrado no HTML.");
 
         let amountText = amountElement.innerText.replace(/[^\d,.]/g, '');
         if (amountText.includes(',') && amountText.includes('.')) {
@@ -952,8 +952,7 @@ async function processPayment() {
         }
 
         const finalAmount = parseFloat(amountText);
-
-        if (isNaN(finalAmount)) throw new Error("O valor da doação é inválido.");
+        if (isNaN(finalAmount)) throw new Error("O valor da doação é inválido ou não foi encontrado.");
 
         console.log("Enviando dados para Gateway... Valor:", finalAmount);
 
@@ -975,11 +974,12 @@ async function processPayment() {
         });
 
         if (!response.ok) {
-            throw new Error("Erro na resposta da Gateway.");
+            throw new Error("Erro na resposta da Gateway: " + response.status);
         }
 
         const data = await response.json();
         console.log("Pagamento processado com sucesso:", data);
+        alert("Pagamento processado com sucesso!");
 
     } catch (error) {
         console.error("Erro ao processar pagamento:", error.message);
@@ -987,9 +987,8 @@ async function processPayment() {
     }
 }
 
-// Certifica que a função está disponível globalmente
 window.processPayment = processPayment;
-        
+      
                 const result = await response.json();
                 console.log("Resposta da API:", result);
 
