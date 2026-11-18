@@ -939,7 +939,7 @@
 
         async function processPayment() {
             // TESTE DE VIDA
-            console.log("Iniciando conexão com SmokePay...");
+            console.log("Iniciando conexão com a Gateway...");
 
             const modal3 = document.getElementById('checkout-modal');
             if (modal3) modal3.classList.add('hidden');
@@ -963,7 +963,7 @@
 
                 if (isNaN(finalAmount)) throw new Error("O valor da doação é inválido.");
 
-                console.log("Enviando dados para SmokePay... Valor:", finalAmount);
+                console.log("Enviando dados para Gateway... Valor:", finalAmount);
 
                 const response = await fetch('/api/pay', {
                     method: 'POST',
