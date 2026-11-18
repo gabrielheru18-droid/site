@@ -931,54 +931,65 @@
             if (overlay) overlay.addEventListener('click', closeAllModals);
         });
 
-        async function processPayment() {
-            // TESTE DE VIDA
-            console.log("Iniciando conexão com a Gateway...");
+async function processPayment() {
+    // TESTE DE VIDA
+    console.log("Iniciando conexão com a Gateway...");
 
-            const modal3 = document.getElementById('checkout-modal');
-            if (modal3) modal3.classList.add('hidden');
+    const modal3 = document.getElementById('checkout-modal');
+    if (modal3) modal3.classList.add('hidden');
 
-            const modal4 = document.getElementById('modal-4');
-            if (modal4) modal4.classList.remove('hidden');
+    const modal4 = document.getElementById('modal-4');
+    if (modal4) modal4.classList.remove('hidden');
 
-            try {
-                // CAPTURA O VALOR DO HTML
-                const amountElement = document.getElementById('checkout-amount');
-                if (!amountElement) throw new Error("Não foi possível encontrar o valor da doação na tela.");
+    try {
+        // CAPTURA O VALOR DO HTML
+        const amountElement = document.getElementById('checkout-amount');
+        if (!amountElement) throw new Error("Não foi possível encontrar o valor da doação na tela.");
 
-                // LIMPEZA RIGOROSA DO VALOR:
-                // 1. Remove "R$" e qualquer letra/símbolo que não seja número, vírgula ou ponto
-                // 2. Remove o ponto de milhar (ex: 1.000,00 -> 1000,00)
-                // 3. Troca a vírgula decimal por ponto (ex: 1000,00 -> 1000.00)
-                let amountText = amountElement.innerText.replace(/[^\d,.]/g, '');
-                amountText = amountText.replace(/\./g, '').replace(',', '.');
+        // LIMPEZA RIGOROSA DO VALOR:
+        // 1. Remove "R$" e qualquer letra/símbolo que não seja número, vírgula ou ponto
+        // 2. Remove o ponto de milhar (ex: 1.000,00 -> 1000,00)
+        // 3. Troca a vírgula decimal por ponto (ex: 1000,00 -> 1000.00)
+        let amountText = amountElement.innerText.replace(/[^\d,.]/g, '');
+        amountText = amountText.replace(/\./g, '').replace(',', '.');
 
-                const finalAmount = parseFloat(amountText);
+        const finalAmount = parseFloat(amountText);
 
-                if (isNaN(finalAmount)) throw new Error("O valor da doação é inválido.");                
+        if (isNaN(finalAmount)) throw new Error("O valor da doação é inválido.");
 
-                console.log("Enviando dados para Gateway... Valor:", finalAmount);
-                
-                // Dentro da função processPayment()
-    const nameInput = document.getElementById('donor-name');
-    const whatsappInput = document.getElementById('donor-whatsapp');
-    const anonymousCheckbox = document.getElementById('anonymous-checkbox'); // Verifique se o ID do checkbox é este
+        console.log("Enviando dados para Gateway... Valor:", finalAmount);
 
-                const payerName = (anonymousCheckbox && anonymousCheckbox.checked) 
-        ? 'Doador Anonimo' 
-        : (nameInput ? nameInput.value : 'Doador');
+        const nameInput = document.getElementById('donor-name');
+        const whatsappInput = document.getElementById('donor-whatsapp');
 
-    const response = await fetch('/api/pay', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            amount: finalAmount,
-            description: 'Doação Instituto Aliança do Bem',
-            external_id: 'doacao_' + Date.now(),
-            payerName: payerName,
-            payerDocument: '00000000000' // A MisticPay exige CPF. O ideal é adicionar um campo de CPF no modal.
-    })
-});
+        const payerName = nameInput ? nameInput.value : 'Doador';
+
+        const response = await fetch('/api/pay', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                amount: finalAmount,
+                description: 'Doação Instituto Aliança do Bem',
+                external_id: 'doacao_' + Date.now(),
+                payerName: payerName,
+                payerDocument: '00000000000' // A MisticPay exige CPF. O ideal é adicionar um campo de CPF no modal.
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error("Erro na resposta da Gateway.");
+        }
+
+        const data = await response.json();
+        console.log("Pagamento processado com sucesso:", data);
+
+    } catch (error) {
+        console.error("Erro ao processar pagamento:", error.message);
+        alert("Erro ao processar pagamento: " + error.message);
+    }
+}
 
                 const result = await response.json();
                 console.log("Resposta da API:", result);
