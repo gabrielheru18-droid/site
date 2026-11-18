@@ -4,43 +4,46 @@ export default async function handler(req, res) {
     }
 
     try {
-        const { amount, description, external_id, shop_id, expiration } = req.body;
+        const { amount, description, external_id, payerName, payerDocument } = req.body;
 
-        // VERIFIQUE SE ESTA CHAVE É LIVE OU TESTE NA DASHBOARD
-        const API_KEY = 'smoke_live_7147fc2a2326f3654ef405e82da2e8c1dc745dbcd1894189b9651a9e63288427';
+        // INSIRA SEUS DADOS DA MISTICPAY AQUI
+        const CLIENT_ID = 'pk_3baabbbe3e584ed1619de86dc619eeb6';
+        const CLIENT_SECRET = 'sk_cfd24914f1936ab5dc24514f03d3c5351895529f4e792c8fbb7866bdd9fe7c20';
 
-        const response = await fetch('https://smokepay.com.br/api/pix/create', {
+        // A MisticPay exige autenticação Basic (Base64 do client_id:client_secret)
+        const auth = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64');
+
+        const response = await fetch('https://api.misticpay.com/api/transactions/create', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'x-api-key': API_KEY
+                'Authorization': `Basic ${auth}`,
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                amount: parseFloat(amount), // Força a conversão para número decimal
-                description,
-                external_id,
-                shop_id,
-                expiration
+                amount: parseFloat(amount),
+                payerName: payerName || 'Doador Aliança do Bem',
+                payerDocument: payerDocument || '00000000000', // A API exige CPF. Se for anônimo, tente enviar zeros ou peça ao usuário.
+                transactionId: external_id,
+                description: description
             })
         });
 
         const data = await response.json();
 
         if (!response.ok) {
-            console.error('Resposta de Erro da SmokePay:', JSON.stringify(data));
+            console.error('Erro MisticPay:', data);
             return res.status(response.status).json(data);
         }
 
-        // Se a resposta for OK, mas não vier o qrcode_url, avisamos o front-end
-        if (!data || !data.qrcode_url) {
-            console.error('API respondeu OK, mas sem QR Code:', data);
-            return res.status(400).json({ message: 'A API não retornou o link do QR Code. Verifique as permissões da conta.' });
-        }
-
-        return res.status(200).json(data);
+        // A MisticPay retorna os dados do QR Code. 
+        // Vamos mapear para o formato que seu front-end já espera (qrcode_url e pix_code)
+        return res.status(200).json({
+            qrcode_url: data.qrcode || data.qrCode, 
+            pix_code: data.pixCode || data.copyAndPaste
+        });
 
     } catch (error) {
-        console.error('Erro crítico no servidor:', error);
+        console.error('Erro interno MisticPay:', error);
         return res.status(500).json({ message: 'Erro interno no servidor' });
     }
 }
