@@ -979,7 +979,7 @@ async function processPayment() {
 
         const data = await response.json();
         console.log("Pagamento processado com sucesso:", data);
-        await handlePixResponse(response);
+            await handlePixResponse(data);
 
     } catch (error) {
         console.error("Erro ao processar pagamento:", error.message);
@@ -989,10 +989,8 @@ async function processPayment() {
     }
 }
 
-async function handlePixResponse(response) {
+async function handlePixResponse(result) {
     try {
-        const result = await response.json();
-        console.log("Resposta da API:", result);
 
         const pixData = result.data ? result.data : result;
 
