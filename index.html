@@ -964,20 +964,22 @@
                 if (isNaN(finalAmount)) throw new Error("O valor da doação é inválido.");
 
                 console.log("Enviando dados para Gateway... Valor:", finalAmount);
+                
+                // Dentro da função processPayment()
+                const nameInput = document.getElementById('name-input'); // Certifique-se que o ID do campo de nome é este
+                const whatsappInput = document.getElementById('whatsapp-input'); // Use o campo de whatsapp como documento se não tiver CPF, ou crie um campo CPF
 
                 const response = await fetch('/api/pay', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        amount: finalAmount,
-                        description: 'Doação Samuel - Instituto Aliança do Bem',
-                        external_id: 'doacao_' + Date.now(),
-                        shop_id: 'instituto-alianca',
-                        expiration: 1800
-                    })
-                });
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                amount: finalAmount,
+                description: 'Doação Instituto Aliança do Bem',
+                external_id: 'doacao_' + Date.now(),
+                payerName: nameInput ? nameInput.value : 'Anônimo',
+                payerDocument: '00000000000' // A MisticPay exige CPF. O ideal é adicionar um campo de CPF no modal.
+    })
+});
 
                 const result = await response.json();
                 console.log("Resposta da API:", result);
