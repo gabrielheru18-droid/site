@@ -951,7 +951,11 @@ async function processPayment() {
         // 2. Remove o ponto de milhar (ex: 1.000,00 -> 1000,00)
         // 3. Troca a vírgula decimal por ponto (ex: 1000,00 -> 1000.00)
         let amountText = amountElement.innerText.replace(/[^\d,.]/g, '');
-        amountText = amountText.replace(/\./g, '').replace(',', '.');
+        if (amountText.includes(',') && amountText.includes('.')) {
+            amountText = amountText.replace(/\./g, '').replace(',', '.');
+        } else if (amountText.includes(',')) {
+            amountText = amountText.replace(',', '.');
+        }
 
         const finalAmount = parseFloat(amountText);
 
