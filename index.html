@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Samuel - Instituto Aliança do Bem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700&family=Nunito:wght@800;900&display=swap">
+    <style>
+        :root {
+            --primary-green: #22c55e;
+            --secondary-green: #16a34a;
+            --bg-light: #fcfcfc;
+            --text-main: #1a1a1a;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .font-display {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .font-title {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .bg-primary {
+            background-color: var(--primary-green);
+        }
+
+        .text-primary {
+            color: var(--primary-green);
+        }
+
+        .border-primary {
+            border-color: var(--primary-green);
+        }
+
+        .tab-btn.active {
+            border-bottom: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            background-color: white;
+        }
+
+        @keyframes heart-beat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .animate-heart {
+            animation: heart-beat 1.5s ease-in-out infinite;
+        }
+
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        @keyframes blink-green {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(0.98);
+            }
+        }
+
+        .animate-blink {
+            animation: blink-green 1s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-3xl mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="https://institutoaliancadobem.org/__l5e/assets-v1/ba6243bf-01fc-4ef9-a0ae-b2df6009e4a6/logoaliancadobem.png"
+                    alt="Logo" class="h-12 w-auto object-contain">
+            </div>
+            <div class="flex items-center gap-2">
+                <button class="p-2 text-slate-400 hover:text-primary transition-colors"><i data-lucide="share-2"
+                        class="w-5 h-5"></i></button>
+                <button class="p-2 text-slate-400 hover:text-primary transition-colors"><i data-lucide="more-horizontal"
+                        class="w-5 h-5"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" class="max-w-3xl mx-auto bg-white shadow-sm min-h-screen pb-20 transition-all duration-300">
+        <div class="px-6 py-8 text-center">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <span
+                    class="bg-primary text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-sm flex items-center gap-1">
+                    Ele precisa de você hoje <i data-lucide="heart" class="w-3 h-3 fill-current animate-heart"></i>
+                </span>
+            </div>
+            <h1 class="font-display text-3xl md:text-4xl font-black text-slate-900 leading-tight max-w-2xl mx-auto">
+                Samuel teve o rosto deformado por um rojão e hoje vende paçoca nas ruas para sustentar os filhos!
+            </h1>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-3xl">
+            <img src="https://drdeiifigelikzxwwtxn.supabase.co/storage/v1/object/sign/media/2026/b3eeaf39-5dd0-4f0f-9e2e-2cf224e9a27c.png?token=eyJraWQiOiI2MGY5OGY2NS01ZDUyLTQzYzYtODM5NS05MDVmOWRkYWZjZDUiLCJhbGciOiJFUzI1NiJ9.eyJ1cmwiOiJtZWRpYS8yMDI2L2IzZWVhZjM5LTVkZDAtNGYwZi05ZTJlLTJjZjIyNGU5YTI3Yy5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzk0MTI3MzAzLCJleHAiOjIxMDk0ODczMDN9.ZVKBF-35gr2yPZiUWKObkX7lSK-tBvGViaKFyg5u0vtnEMq13K4h78XR2IhJ2LH2HNZbyegy8s1lHF7vUDVX8w"
+                alt="Samuel" class="w-full h-auto object-cover">
+        </div>
+
+        <div class="px-6 py-8">
+            <div class="mb-8">
+                <div
+                    class="flex justify-between items-center text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-3">
+                    <span>Vulnerabilidade Social</span>
+                    <div class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> São Paulo/SP
+                    </div>
+                </div>
+                <div class="w-full h-2 bg-slate-100 rounded-full mb-4 overflow-hidden">
+                    <div class="bg-primary h-full rounded-full" style="width: 84%"></div>
+                </div>
+                <div class="flex items-baseline gap-2 mb-6">
+                    <span class="text-2xl font-black text-primary">R$ 29.875,00</span>
+                    <span class="text-slate-400 text-sm font-medium">de R$ 35.000,00</span>
+                </div>
+                <div class="bg-slate-50 rounded-2xl p-5 space-y-3 border border-slate-100">
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-slate-600 font-medium flex items-center gap-2">Corações Recebidos <i
+                                data-lucide="heart" class="w-4 h-4 fill-primary text-primary"></i></span>
+                        <span class="font-bold text-slate-800">18774</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-slate-600 font-medium">Apoiadores</span>
+                        <span class="font-bold text-slate-800">1194</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center gap-3 mb-8">
+                <div class="flex flex-wrap justify-center items-center gap-3">
+                    <img src="https://drdeiifigelikzxwwtxn.supabase.co/storage/v1/object/sign/media/badges/fixed-2026-11-07/Selo_01.png?token=eyJraWQiOiI2MGY5OGY2NS01ZDUyLTQzYzYtODM5NS05MDVmOWRkYWZjZDUiLCJhbGciOiJFUzI1NiJ9.eyJ1cmwiOiJtZWRpYS9iYWRnZXMvZml4ZWQtMjAyNi0xMS0wNy9TZWxvXzAxLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3OTQwODAwOTAsImV4cCI6MjEwOTQ0MDA5MH0.yFzNdGUpT_rm6sJZbYU38d7PqyMbXp2zRUm0Ke14Jbuy8XtGBnGjaOO8DnLA3aZi3i_gIGxK9K7IXBQ-rrw9qg"
+                        class="h-8 w-auto">
+                    <img src="https://drdeiifigelikzxwwtxn.supabase.co/storage/v1/object/sign/media/badges/fixed-2026-11-07/Selo_02.png?token=eyJraWQiOiI2MGY5OGY2NS01ZDUyLTQzYzYtODM5NS05MDVmOWRkYWZjZDUiLCJhbGciOiJFUzI1NiJ9.eyJ1cmwiOiJtZWRpYS9iYWRnZXMvZml4ZWQtMjAyNi0xMS0wNy9TZWxvXzAyLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3OTQwODAwOTAsImV4cCI6MjEwOTQ0MDA5MH0.H38xJx661R9OwzVjcM0Kx7uOVvUr_Z7XCTK3CfNDkuFkc9AleEsbyyy9DwD4JFvD5avNIkJF95yz3ngxV_yEDw"
+                        class="h-8 w-auto">
+                    <img src="https://drdeiifigelikzxwwtxn.supabase.co/storage/v1/object/sign/media/badges/fixed-2026-11-07/Selo_03.png?token=eyJraWQiOiI2MGY5OGY2NS01ZDUyLTQzYzYtODM5NS05MDVmOWRkYWZjZDUiLCJhbGciOiJFUzI1NiJ9.eyJ1cmwiOiJtZWRpYS9iYWRnZXMvZml4ZWQtMjAyNi0xMS0wNy9TZWxvXzAzLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3OTQwODAwOTAsImV4cCI6MjEwOTQ0MDA5MH0.l4nPP266OCYEt7aGydh26-8aA5niE5hYFfY5tT72A3Kq5C-ER50ylmlwFUwQxuYXE2vVMF04G7Fc74IR8x66KA"
+                        class="h-8 w-auto">
+                    <img src="https://drdeiifigelikzxwwtxn.supabase.co/storage/v1/object/sign/media/badges/fixed-2026-11-07/Selo_04.png?token=eyJraWQiOiI2MGY5OGY2NS01ZDUyLTQzYzYtODM5NS05MDVmOWRkYWZjZDUiLCJhbGciOiJFUzI1NiJ9.eyJ1cmwiOiJtZWRpYS9iYWRnZXMvZml4ZWQtMjAyNi0xMS0wNy9TZWxvXzA0LnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3OTQwODAwOTEsImV4cCI6MjEwOTQ0MDA5MX0.Fo35CuVzvKgsQI_w5gbQsN1bQrCD-Q0lqFsUzKLzlgyT2wBKwWs5ZNcws1dlQKI6mPb2mHw_SNp79sAJgPUrnw"
+                        class="h-8 w-auto">
+                    <img src="https://drdeiifigelikzxwwtxn.supabase.co/storage/v1/object/sign/media/badges/fixed-2026-11-07/Selo_05.png?token=eyJraWQiOiI2MGY5OGY2NS01ZDUyLTQzYzYtODM5NS05MDVmOWRkYWZjZDUiLCJhbGciOiJFUzI1NiJ9.eyJ1cmwiOiJtZWRpYS9iYWRnZXMvZml4ZWQtMjAyNi0xMS0wNy9TZWxvXzA1LnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3OTQwODAwOTEsImV4cCI6MjEwOTQ0MDA5MX0.5qNMCeVIHVqo9XIQxVc0v2r5q42weaNJqurU8AR3AUtIJPPe3Q07lFpN5npFJFJPGFpOE3Kkt6F0Ke3ABjcOyg"
+                        class="h-8 w-auto">
+                    <img src="https://drdeiifigelikzxwwtxn.supabase.co/storage/v1/object/sign/media/badges/fixed-2026-11-07/Selo_06.png?token=eyJraWQiOiI2MGY5OGY2NS01ZDUyLTQzYzYtODM5NS05MDVmOWRkYWZjZDUiLCJhbGciOiJFUzI1NiJ9.eyJ1cmwiOiJtZWRpYS9iYWRnZXMvZml4ZWQtMjAyNi0xMS0wNy9TZWxvXzA2LnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3OTQwODAwOTEsImV4cCI6MjEwOTQ0MDA5MX0.5P7Ys3jSxi66jtCqLnqBh5oeZJwnPWKpsSz_HAiObORp31mQhG9k5PW36OnDJ8YqMQwyHB3ZEBHL1qdMzAUuiA"
+                        class="h-8 w-auto">
+                </div>
+                <a href="#"
+                    class="text-slate-400 text-[11px] font-semibold uppercase tracking-wider hover:text-primary transition flex items-center gap-1">
+                    <i data-lucide="shield-check" class="w-3 h-3"></i> Selos de Verificação
+                </a>
+            </div>
+
+            <div class="mb-10 overflow-hidden border border-slate-200 rounded-2xl bg-white shadow-sm">
+                <div class="flex border-b border-slate-200 bg-slate-50/50">
+                    <button onclick="switchTab(event, 'tab-sobre')"
+                        class="tab-btn active flex-1 py-3 text-xs font-bold uppercase tracking-wider transition-all border-b-2">Sobre</button>
+                    <button onclick="switchTab(event, 'tab-ajudou')"
+                        class="tab-btn flex-1 py-3 text-xs font-bold uppercase tracking-wider transition-all border-b-2 border-transparent text-slate-400 hover:text-slate-600">Quem
+                        ajudou</button>
+                    <button onclick="switchTab(event, 'tab-selos')"
+                        class="tab-btn flex-1 py-3 text-xs font-bold uppercase tracking-wider transition-all border-b-2 border-transparent text-slate-400 hover:text-slate-600">Selos
+                        recebidos</button>
+                </div>
+                <div class="p-6">
+                    <div id="tab-sobre" class="tab-content block">
+                        <p class="text-slate-500 text-sm mb-4">Você pode ajudar via Pix usando a chave:</p>
+                        <div class="flex items-center gap-2 bg-slate-50 p-4 rounded-xl border border-slate-100 mb-6">
+                            <span class="font-bold text-slate-800 break-all">ajude@institutoaliancadobem.org</span>
+                            <button class="text-slate-400 hover:text-primary transition"><i data-lucide="copy"
+                                    class="w-4 h-4"></i></button>
+                        </div>
+                        <p class="text-slate-600 text-sm font-medium mb-6">Campanha criada em: <span
+                                class="text-slate-400">01/10/2026</span></p>
+                        <p class="text-slate-800 text-base font-semibold leading-relaxed">
+                            Por trás de cada paçoca que Samuel vende, existe um pai tentando levar comida para casa e um
+                            homem que merece ser visto além das marcas de um acidente.
+                        </p>
+                    </div>
+                    <div id="tab-ajudou" class="tab-content hidden space-y-4">
+                        <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 transition">
+                            <div
+                                class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center shrink-0">
+                                <i data-lucide="users" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-800 text-sm">Contribuições</p>
+                                <p class="text-slate-500 text-xs">1.194 pessoas doaram</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 transition">
+                            <div
+                                class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center shrink-0">
+                                <i data-lucide="hand-heart" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-800 text-sm">Adotantes</p>
+                                <p class="text-slate-500 text-xs">Quer adotar essa campanha? <a href="#"
+                                        class="text-primary font-semibold">Clique aqui!</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-selos" class="tab-content hidden space-y-3">
+                        <div class="flex items-center gap-3 p-3 border-b border-slate-100 last:border-0">
+                            <img src="https://drdeiifigelikzxwwtxn.supabase.co/storage/v1/object/sign/media/badges/fixed-2026-11-07/Selo_01.png?token=eyJraWQiOiI2MGY5OGY2NS01ZDUyLTQzYzYtODM5NS05MDVmOWRkYWZjZDUiLCJhbGciOiJFUzI1NiJ9.eyJ1cmwiOiJtZWRpYS9iYWRnZXMvZml4ZWQtMjAyNi0xMS0wNy9TZWxvXzAxLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3OTQwODAwOTAsImV4cCI6MjEwOTQ0MDA5MH0.yFzNdGUpT_rm6sJZbYU38d7PqyMbXp2zRUm0Ke14Jbuy8XtGBnGjaOO8DnLA3aZi3i_gIGxK9K7IXBQ-rrw9qg"
+                                class="h-7 w-auto">
+                            <span class="text-sm font-medium text-slate-700">Mais amada da semana</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6 mb-12">
+                <p class="text-slate-600 text-base leading-relaxed">
+                    A vida de Samuel mudou drasticamente após um acidente com fogos de artifício. Hoje, ele luta
+                    diariamente nas ruas, enfrentando o preconceito e a dificuldade, para garantir o sustento de seus
+                    filhos.
+                </p>
+                <p class="text-slate-600 text-base leading-relaxed">
+                    Sua determinação é inspiradora, mas ele não consegue fazer isso sozinho. Cada pequena ajuda faz a
+                    diferença na vida desta família.
+                </p>
+                <div
+                    class="border-l-4 border-primary bg-slate-50 p-6 rounded-r-2xl italic text-slate-700 font-medium leading-relaxed">
+                    "Minha maior luta é ver meus filhos com dignidade e saúde, apesar de todas as marcas que carrego."
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-100 mb-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="bg-green-100 p-2 rounded-full">
+                        <i data-lucide="heart" class="w-5 h-5 text-primary fill-primary"></i>
+                    </div>
+                    <h2 class="font-display text-xl font-black text-primary">Impacto da sua doação</h2>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-4 p-3 rounded-2xl border border-slate-100 bg-slate-50/50">
+                        <span class="bg-primary text-white font-bold px-4 py-2 rounded-full text-sm shrink-0">R$
+                            20</span>
+                        <p class="text-slate-600 text-sm leading-tight">Com R$ 20 você ajuda Samuel a colocar alimento
+                            na mesa da família por mais 1 dia.</p>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 rounded-2xl border border-slate-100 bg-slate-50/50">
+                        <span class="bg-primary text-white font-bold px-4 py-2 rounded-full text-sm shrink-0">R$
+                            50</span>
+                        <p class="text-slate-600 text-sm leading-tight">Com R$ 50 você contribui para cremes e pomadas
+                            para sua deformidade.</p>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 rounded-2xl border border-slate-100 bg-slate-50/50">
+                        <span class="bg-primary text-white font-bold px-4 py-2 rounded-full text-sm shrink-0">R$
+                            100</span>
+                        <p class="text-slate-600 text-sm leading-tight">Com R$ 100 você ajuda Samuel a buscar avaliação
+                            médica para seu tratamento.</p>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 rounded-2xl border border-slate-100 bg-slate-50/50">
+                        <span class="bg-primary text-white font-bold px-4 py-2 rounded-full text-sm shrink-0">R$
+                            200</span>
+                        <p class="text-slate-600 text-sm leading-tight">Com R$ 200 você contribui com o transporte e
+                            deslocamento na busca por um novo emprego.</p>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 rounded-2xl border border-slate-100 bg-slate-50/50">
+                        <span class="bg-primary text-white font-bold px-4 py-2 rounded-full text-sm shrink-0">R$
+                            500</span>
+                        <p class="text-slate-600 text-sm leading-tight">Com R$ 500 você garante 1 mês de alimentação
+                            para Samuel e sua família.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-2 border-primary rounded-3xl p-8 text-center bg-white shadow-sm mb-12">
+                <span class="text-primary font-bold text-xs uppercase tracking-widest block mb-2">Contribua com a
+                    causa</span>
+                <h3 class="text-primary font-display text-4xl font-black mb-1">R$ 50,00</h3>
+                <p class="text-slate-400 text-xs mb-6">ou qualquer valor que seu coração sentir</p>
+                <button onclick="openDonationModal()"
+                    class="w-full py-4 bg-primary text-white rounded-full font-black text-sm uppercase tracking-wide hover:bg-secondary-green transition-all shadow-lg shadow-green-200">
+                    Quero ajudar agora
+                </button>
+                <div class="flex justify-center items-center gap-4 mt-6 text-slate-400 text-[10px] font-medium">
+                    <span class="flex items-center gap-1"><i data-lucide="lock" class="w-3 h-3"></i> Pagamento
+                        Seguro</span>
+                    <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-3 h-3"></i> Site
+                        Verificado</span>
+                </div>
+            </div>
+
+            <div class="bg-primary rounded-3xl p-8 text-center text-white shadow-lg shadow-green-200">
+                <h2 class="font-display text-2xl font-black mb-4">Ajude o Samuel a transformar sua vida</h2>
+                <p class="text-green-100 text-sm mb-8 leading-relaxed">
+                    Sua doação, não importa o valor, ajuda a garantir que o Samuel e seus filhos tenham dignidade e
+                    suporte.
+                </p>
+                <div
+                    class="bg-white text-slate-900 rounded-2xl p-4 flex flex-col items-center gap-3 border-2 border-green-300">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Chave Pix (E-mail)</span>
+                    <span class="font-mono font-bold text-lg break-all">ajude@institutoaliancadobem.org</span>
+                    <button
+                        class="w-full py-3 bg-primary text-white rounded-xl font-bold text-sm hover:bg-secondary-green transition flex items-center justify-center gap-2">
+                        <i data-lucide="copy" class="w-4 h-4"></i> Copiar Chave
+                    </button>
+                </div>
+            </div>
+
+            <!-- Outras Histórias -->
+            <div class="mt-16 space-y-8">
+                <h2 class="font-display text-2xl font-black text-slate-900 px-2">Outras histórias também precisam de
+                    você</h2>
+
+                <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="relative">
+                        <img src="https://drdeiifigelikzxwwtxn.supabase.co/storage/v1/object/sign/media/2026/e1744eeb-e6b8-492a-8882-01e3fb1b2848.png?token=eyJraWQiOiI2MGY5OGY2NS01ZDUyLTQzYzYtODM5NS05MDVmOWRkYWZjZDUiLCJhbGciOiJFUzI1NiJ9.eyJ1cmwiOiJtZWRpYS8yMDI2L2UxNzQ0ZWViLWU2YjgtNDkyYS04ODgyLTAxZTNmYjFiMjg0OC5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzk0MTI1MDI1LCJleHAiOjIxMDk0ODUwMjV9.-f5X22scSHpUvp6wotnfORa_nC9uytZA9_-RtC8H_xWjzl8eNhDy-VIp7gngoidUYHb-XR_it-tksN79Uep2qQ"
+                            alt="Ester e família" class="w-full h-auto object-cover">
+                        <button
+                            class="absolute top-4 right-4 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center text-slate-400 hover:text-primary transition">
+                            <i data-lucide="heart" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <span
+                            class="bg-green-100 text-primary text-[10px] font-bold uppercase px-3 py-1 rounded-full">Moradia</span>
+                        <h3 class="font-bold text-slate-900 text-lg leading-tight">Ester e sua família precisam de um
+                            lar! Hoje, eles vivem em uma barraca!</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-primary font-bold">R$ 57.376,62</span>
+                                <span class="text-slate-400 text-xs">de 60 mil</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="bg-primary h-full" style="width: 95%"></div>
+                            </div>
+                            <div class="flex items-center gap-1 text-slate-500 text-xs font-medium">
+                                38394 corações recebidos <i data-lucide="heart"
+                                    class="w-3 h-3 fill-primary text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="relative">
+                        <img src="https://drdeiifigelikzxwwtxn.supabase.co/storage/v1/object/sign/media/2026/c390d576-abd8-43dc-81bb-80c60681d496.png?token=eyJraWQiOiI2MGY5OGY2NS01ZDUyLTQzYzYtODM5NS05MDVmOWRkYWZjZDUiLCJhbGciOiJFUzI1NiJ9.eyJ1cmwiOiJtZWRpYS8yMDI2L2MzOTBkNTc2LWFiZDgtNDNkYy04MWJiLTgwYzYwNjgxZDQ5Ni5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzk0MTI2MzQ3LCJleHAiOjIxMDk0ODYzNDd9.-jetJQymi0Tg2aYnJxoomy9TmIT1j1yiK3BIYYQIoGdc3gY2jKV91eE4T3_h-6Pr8LvMBmPBtAqB3wi45bPhVQ"
+                            alt="Antônio" class="w-full h-auto object-cover">
+                        <button
+                            class="absolute top-4 right-4 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center text-slate-400 hover:text-primary transition">
+                            <i data-lucide="heart" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <span
+                            class="bg-green-100 text-primary text-[10px] font-bold uppercase px-3 py-1 rounded-full">Alimentação
+                            e Moradia</span>
+                        <h3 class="font-bold text-slate-900 text-lg leading-tight">Antônio tem 15 anos, ele deveria
+                            estar sonhando, mas está tremendo de fome!</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-primary font-bold">R$ 23.725,00<span class="text-slate-400 text-xs">de
+                                        28 mil</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="bg-primary h-full" style="width: 84%"></div>
+                            </div>
+                            <div class="flex items-center gap-1 text-slate-500 text-xs font-medium">
+                                24197 corações recebidos <i data-lucide="heart"
+                                    class="w-3 h-3 fill-primary text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Doe via Pix -->
+            <div class="mt-12 bg-primary rounded-3xl p-8 text-white shadow-xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="bg-white/20 p-2 rounded-lg">
+                            <i data-lucide="qr-code" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h2 class="text-2xl font-black">Doe via Pix</h2>
+                    </div>
+                    <p class="text-green-100 text-sm mb-6">Chave vinculada à conta do Instituto Aliança do Bem</p>
+
+                    <div class="flex flex-col sm:flex-row gap-3 mb-6">
+                        <div
+                            class="flex-1 bg-green-600/50 border border-green-400/30 p-4 rounded-xl font-mono text-lg font-bold text-white break-all">
+                            ajude@institutoaliancadobem.org
+                        </div>
+                        <button
+                            class="bg-slate-900 text-white px-6 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-slate-800 transition">
+                            <i data-lucide="copy" class="w-5 h-5"></i> Copiar
+                        </button>
+                    </div>
+
+                    <p class="text-sm font-medium mb-6">Recebedor: <span class="font-black">ALIANCA DO BEM LTDA.</span>
+                    </p>
+
+                    <div class="space-y-4 text-sm">
+                        <div class="flex items-start gap-3">
+                            <span
+                                class="bg-white text-primary w-6 h-6 rounded-full flex items-center justify-center font-black shrink-0">1</span>
+                            <p>Copie a chave acima clicando em <span class="font-bold">Copiar</span></p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span
+                                class="bg-white text-primary w-6 h-6 rounded-full flex items-center justify-center font-black shrink-0">2</span>
+                            <p>Abra o app do seu banco &rarr; <span class="font-bold">Pix</span> &rarr; <span
+                                    class="font-bold">Pagar</span> &rarr; <span class="font-bold">Colar chave</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segurança e Transparência -->
+            <div class="mt-16 bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="bg-green-100 p-2 rounded-full text-primary">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-black text-slate-900">Segurança e Transparência</h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                    <div class="bg-green-50 border border-green-100 p-4 rounded-2xl flex items-center gap-4">
+                        <div class="bg-primary text-white p-2 rounded-lg"><i data-lucide="map-pin" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase">Recebedor</p>
+                            <p class="font-black text-slate-900">Aliança do Bem</p>
+                        </div>
+                    </div>
+                    <div class="bg-green-50 border border-green-100 p-4 rounded-2xl flex items-center gap-4">
+                        <div class="bg-primary text-white p-2 rounded-lg"><i data-lucide="file-text"
+                                class="w-5 h-5"></i></div>
+                        <div>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase">Campanha</p>
+                            <p class="font-black text-slate-900">#ID-1003</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-green-50 border border-green-100 p-4 rounded-2xl flex items-center justify-center gap-2 text-primary font-bold text-sm mb-8">
+                    <i data-lucide="check-circle" class="w-4 h-4"></i> Campanha Verificada pelo Instituto Aliança do Bem
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div
+                        class="border border-slate-100 p-6 rounded-2xl text-center space-y-3 hover:border-primary transition">
+                        <div
+                            class="bg-green-100 w-12 h-12 rounded-xl flex items-center justify-center mx-auto text-primary">
+                            <i data-lucide="lock" class="w-6 h-6"></i>
+                        </div>
+                        <p class="font-black text-slate-900">100% Seguro</p>
+                        <p class="text-xs text-slate-400">Doação criptografada</p>
+                    </div>
+                    <div
+                        class="border border-slate-100 p-6 rounded-2xl text-center space-y-3 hover:border-primary transition">
+                        <div
+                            class="bg-green-100 w-12 h-12 rounded-xl flex items-center justify-center mx-auto text-primary">
+                            <i data-lucide="check-square" class="w-6 h-6"></i>
+                        </div>
+                        <p class="font-black text-slate-900">Transparência</p>
+                        <p class="text-xs text-slate-400">Relatórios mensais</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-50 border-t border-slate-200 pt-16 pb-12">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-left">
+                <div class="space-y-4">
+                    <img src="https://institutoaliancadobem.org/__l5e/assets-v1/79a264a8-581d-4f1b-af2a-809b53836bf7/logo-rodape.png"
+                        alt="Logo Rodapé" class="h-10 w-auto mb-4">
+                    <p class="font-display text-lg font-black text-slate-900 leading-tight">
+                        O cuidado abraça.<br>A incluss transforma.
+                    </p>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Acolher, cuidar e incluir: é assim que construímos um mundo onde cada pessoa tem seu lugar.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:col-span-2 gap-8">
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-4">Links Rápidos
+                            </h4>
+                            <ul class="space-y-2 text-sm font-medium text-slate-600">
+                                <li><a href="#" class="hover:text-primary transition">Campanhas</a></li>
+                                <li><a href="#" class="hover:text-primary transition">Como ajudar</a></li>
+                                <li><a href="#" class="hover:text-primary transition">Quem somos</a></li>
+                                <li><a href="#" class="hover:text-primary transition">Transparência</a></li>
+                                <li><a href="#" class="hover:text-primary transition">Fale conosco</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-4">Contato</h4>
+                            <ul class="space-y-2 text-sm font-medium text-slate-600">
+                                <li class="flex items-center gap-2"><i data-lucide="mail" class="w-3 h-3"></i>
+                                    contato@institutoaliancadobem.org</li>
+                                <li class="flex items-center gap-2"><i data-lucide="phone" class="w-3 h-3"></i> (44)
+                                    99667-9801</li>
+                                <li class="flex items-center gap-2"><i data-lucide="clock" class="w-3 h-3"></i> Seg à
+                                    Sex, 8h às 21h</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-4">Legal</h4>
+                            <ul class="space-y-2 text-sm font-medium text-slate-600">
+                                <li><a href="#" class="hover:text-primary transition">Política de Privacidade</a></li>
+                                <li><a href="#" class="hover:text-primary transition">Termos de Uso</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-200 text-center">
+                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">
+                    Instituto Aliança do Bem &middot; CNPJ: 66.604.674/0001-03 &middot; &copy; 2026
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <nav
+        class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-6 py-3 flex justify-around items-center z-50 md:hidden">
+        <a href="#" class="flex flex-col items-center gap-1 text-primary">
+            <i data-lucide="home" class="w-6 h-6"></i>
+            <span class="text-[10px] font-bold uppercase">Início</span>
+        </a>
+        <a href="javascript:void(0)" onclick="openDonationModal()"
+            class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition">
+            <i data-lucide="hand-coins" class="w-6 h-6"></i>
+            <span class="text-[10px] font-bold uppercase">Doar</span>
+        </a>
+    </nav>
+
+    <!-- Modal 1: Doação Principal -->
+    <div id="donation-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+        <div id="modal-overlay" class="absolute inset-0 bg-slate-900/40 modal-overlay"></div>
+
+        <div
+            class="relative bg-white w-full max-w-md rounded-[32px] shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-primary p-1.5 rounded-lg">
+                            <i data-lucide="heart" class="w-5 h-5 text-white fill-current"></i>
+                        </div>
+                        <h3 class="font-display text-lg font-black text-slate-800">Qual valor deseja doar?</h3>
+                    </div>
+                    <button onclick="openUrgencyModal()"
+                        class="p-2 text-slate-400 hover:text-slate-600 transition cursor-pointer">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+                <button
+                    class="w-full py-3 bg-primary text-white rounded-full font-bold text-sm uppercase tracking-wide mb-6 hover:bg-secondary-green transition shadow-md">
+                    Doação Única
+                </button>
+
+                <div class="grid grid-cols-3 gap-3 mb-6">
+                    <button onclick="openCheckoutModal('20')"
+                        class="py-3 border border-slate-200 rounded-xl font-bold text-slate-700 hover:border-primary hover:text-primary transition">R$
+                        20</button>
+                    <div class="relative">
+                        <button onclick="openCheckoutModal('30')"
+                            class="w-full py-3 border border-primary rounded-xl font-bold text-primary transition">R$
+                            30</button>
+                        <span
+                            class="absolute -top-2 left-1/2 -translate-x-1/2 bg-primary text-white text-[8px] font-black uppercase px-2 py-0.5 rounded-full">popular</span>
+                    </div>
+                    <button onclick="openCheckoutModal('50')"
+                        class="py-3 border border-slate-200 rounded-xl font-bold text-slate-700 hover:border-primary hover:text-primary transition">R$
+                        50</button>
+                    <button onclick="openCheckoutModal('100')"
+                        class="py-3 border border-slate-200 rounded-xl font-bold text-slate-700 hover:border-primary hover:text-primary transition">R$
+                        100</button>
+                    <button onclick="openCheckoutModal('150')"
+                        class="py-3 border border-slate-200 rounded-xl font-bold text-slate-700 hover:border-primary hover:text-primary transition">R$
+                        150</button>
+                    <button onclick="openCheckoutModal('200')"
+                        class="py-3 border border-slate-200 rounded-xl font-bold text-slate-700 hover:border-primary hover:text-primary transition">R$
+                        200</button>
+                    <button onclick="openCheckoutModal('250')"
+                        class="py-3 border border-slate-200 rounded-xl font-bold text-slate-700 hover:border-primary hover:text-primary transition">R$
+                        250</button>
+                    <button onclick="openCheckoutModal('500')"
+                        class="py-3 border border-slate-200 rounded-xl font-bold text-slate-700 hover:border-primary hover:text-primary transition">R$
+                        500</button>
+                    <button onclick="openCheckoutModal('1000')"
+                        class="py-3 border border-slate-200 rounded-xl font-bold text-slate-700 hover:border-primary hover:text-primary transition">R$
+                        1.000</button>
+                </div>
+
+                <div class="mb-8">
+                    <p class="text-slate-500 text-xs font-medium mb-3 flex items-center gap-1">
+                        Ou o que o seu coração mandar <i data-lucide="heart"
+                            class="w-3 h-3 fill-primary text-primary"></i> :
+                    </p>
+                    <div
+                        class="flex items-center border border-slate-200 rounded-xl p-3 focus-within:border-primary transition">
+                        <span class="text-slate-400 font-bold text-sm mr-3">R$</span>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                            placeholder="Valor livre"
+                            class="w-full outline-none text-sm font-medium text-slate-800 placeholder:text-slate-300"
+                            id="custom-amount-input">
+                    </div>
+                </div>
+
+                <button onclick="continueWithCustomAmount()"
+                    class="w-full py-4 bg-primary text-white rounded-full font-black text-sm uppercase tracking-widest hover:bg-secondary-green transition-all flex items-center justify-center gap-2">
+                    Continuar <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+
+                <div class="mt-4 flex items-center justify-center gap-1.5 text-slate-400 text-[10px] font-medium">
+                    <i data-lucide="check-circle" class="w-3 h-3 text-primary"></i> Pagamento 100% seguro e verificado
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Urgência (Retenção) -->
+    <div id="urgency-modal" class="fixed inset-0 z-[110] hidden flex items-center justify-center p-4">
+        <div id="urgency-overlay" class="absolute inset-0 bg-slate-900/40 modal-overlay"></div>
+
+        <div
+            class="relative bg-white w-full max-w-sm rounded-[32px] shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300">
+            <!-- Header Verde de Urgência -->
+            <div class="bg-primary px-6 py-3 flex items-center justify-between text-white">
+                <div class="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest">
+                    <i data-lucide="bell" class="w-3 h-3"></i> Sua ajuda é urgente
+                </div>
+                <button onclick="closeAllModals()" class="p-1 hover:bg-white/20 rounded-full transition cursor-pointer">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <div class="p-8 text-center">
+                <div class="flex justify-center mb-6">
+                    <div class="bg-green-50 p-4 rounded-full">
+                        <i data-lucide="heart" class="w-10 h-10 text-primary fill-primary"></i>
+                    </div>
+                </div>
+
+                <h3 class="font-display text-2xl font-black text-slate-800 mb-3">Não saia sem ajudar</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                    Sua doação ajuda o Instituto Aliança do Bem a transformar a vida de quem mais precisa.
+                </p>
+
+                <p class="text-slate-800 text-xs font-bold uppercase tracking-wider mb-4">Escolha um valor e ajude
+                    agora.</p>
+
+                <div class="grid grid-cols-2 gap-3 mb-4">
+                    <button
+                        class="py-3 border border-slate-200 rounded-xl font-bold text-slate-700 hover:border-primary hover:text-primary transition">R$
+                        20</button>
+                    <div class="relative">
+                        <button class="w-full py-3 bg-primary text-white rounded-xl font-bold transition shadow-md">R$
+                            30</button>
+                        <span
+                            class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-[8px] font-black uppercase px-2 py-0.5 rounded-full border border-white/20">mais
+                            escolhido</span>
+                    </div>
+                    <button
+                        class="py-3 border border-slate-200 rounded-xl font-bold text-slate-700 hover:border-primary hover:text-primary transition">R$
+                        50</button>
+                    <button
+                        class="py-3 border border-slate-200 rounded-xl font-bold text-slate-700 hover:border-primary hover:text-primary transition">R$
+                        100</button>
+                </div>
+
+                <button
+                    class="w-full py-3 border border-slate-200 rounded-xl font-bold text-slate-600 text-sm hover:bg-slate-50 transition">
+                    Escolher outro valor
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Checkout/Pagamento -->
+    <div id="checkout-modal" class="fixed inset-0 z-[120] hidden flex items-center justify-center p-4">
+        <div id="checkout-overlay" class="absolute inset-0 bg-slate-900/40 modal-overlay"></div>
+
+        <div
+            class="relative bg-white w-full max-w-md rounded-[32px] shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-primary p-1.5 rounded-lg">
+                            <i data-lucide="credit-card" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <h3 class="font-display text-lg font-black text-slate-800">Finalizar Doação</h3>
+                    </div>
+                    <button onclick="closeAllModals()"
+                        class="p-2 text-slate-400 hover:text-slate-600 transition cursor-pointer">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+                <div class="text-center mb-8">
+                    <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Você está doando</p>
+                    <span id="checkout-amount" class="text-3xl font-black text-primary">R$ 0,00</span>
+                </div>
+
+                <div class="space-y-4 mb-8">
+                    <div>
+                        <label class="text-[10px] font-bold text-slate-400 uppercase mb-1 block ml-1">Seu nome
+                            completo</label>
+                        <input type="text" id="donor-name" placeholder="Digite seu nome"
+                            class="w-full p-3 rounded-xl border border-slate-200 outline-none focus:border-primary transition text-sm font-medium">
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-bold text-slate-400 uppercase mb-1 block ml-1">WhatsApp</label>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                            placeholder="Apenas números"
+                            class="w-full p-3 rounded-xl border border-slate-200 outline-none focus:border-primary transition text-sm font-medium">
+                    </div>
+                    <div class="flex items-center gap-2 p-1">
+                        <input type="checkbox" id="anon-check" onchange="toggleAnonymous(this)"
+                            class="w-4 h-4 accent-primary">
+                        <label for="anon-check" class="text-sm font-medium text-slate-600 cursor-pointer">Quero doar
+                            anonimamente</label>
+                    </div>
+                </div>
+
+                <!-- ALTERAÇÃO AQUI: Adicionado id="pay-button" e alterado para processPayment() -->
+                <button id="pay-button" onclick="processPayment()"
+                    class="w-full py-4 bg-primary text-white rounded-full font-black text-sm uppercase tracking-widest hover:bg-secondary-green transition-all shadow-lg shadow-green-200 animate-blink">
+                    Gerar Pix Agora
+                </button>
+
+                <p class="text-center text-slate-400 text-[10px] font-medium mt-4">
+                    <i data-lucide="shield-check" class="w-3 h-3 inline mr-1"></i> Processamento seguro via Instituto
+                    Aliança do Bem
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: Carregamento -->
+    <div id="loading-modal" class="fixed inset-0 z-[130] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+        <div
+            class="relative bg-white w-full max-w-xs rounded-[32px] shadow-2xl p-8 text-center animate-in fade-in zoom-in duration-300">
+            <div class="flex justify-center mb-6">
+                <div class="relative">
+                    <div class="w-16 h-16 border-4 border-slate-100 border-t-primary rounded-full animate-spin"></div>
+                    <i data-lucide="qr-code"
+                        class="w-6 h-6 text-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
+                </div>
+            </div>
+            <h3 class="font-display text-xl font-black text-slate-800 mb-2">Gerando seu Pix...</h3>
+            <p class="text-slate-500 text-sm">Aguarde um instante enquanto preparamos sua doação.</p>
+        </div>
+    </div>
+
+    <!-- Modal 5: Resultado do Pagamento -->
+    <div id="payment-result-modal" class="fixed inset-0 z-[140] hidden flex items-center justify-center p-4">
+        <div id="payment-overlay" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm modal-overlay"></div>
+        <div
+            class="relative bg-white w-full max-w-md rounded-[32px] shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300">
+            <div class="p-6 text-center">
+                <div class="flex justify-center mb-4">
+                    <div class="bg-green-100 p-3 rounded-full text-primary">
+                        <i data-lucide="check-circle" class="w-8 h-8 fill-primary text-white"></i>
+                    </div>
+                </div>
+                <h3 class="font-display text-2xl font-black text-slate-800 mb-2">Pagamento Gerado!</h3>
+                <p class="text-slate-500 text-sm mb-6">Abaixo está o seu código de pagamento. Escaneie o QR Code para
+                    finalizar.</p>
+
+                <div class="relative rounded-2xl overflow-hidden border-2 border-slate-100 mb-6">
+                    <img id="pix-qrcode" src="" alt="QR Code Pix" class="w-full h-auto">
+                </div>
+
+                <div class="flex items-center gap-2 p-3 bg-slate-50 border-2 border-slate-100 rounded-2xl mb-6">
+                    <span id="pix-code" class="text-xs font-mono text-slate-600 truncate flex-1">Carregando
+                        código...</span>
+                    <button onclick="copyPixCode()"
+                        class="px-3 py-1 bg-white border border-slate-200 text-slate-700 rounded-lg text-[10px] font-bold uppercase hover:bg-slate-100 transition-colors">
+                        Copiar
+                    </button>
+                </div>
+
+                <button onclick="closeAllModals()"
+                    class="w-full py-4 bg-primary text-white rounded-full font-black text-sm uppercase tracking-widest hover:bg-secondary-green transition-all">
+                    Voltar ao Início
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        function switchTab(event, tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+            contents.forEach(c => { c.classList.add('hidden'); c.classList.remove('block'); });
+            document.getElementById(tabId).classList.remove('hidden');
+            document.getElementById(tabId).classList.add('block');
+            buttons.forEach(b => { b.classList.remove('active', 'text-primary', 'bg-white'); b.classList.add('text-slate-400'); });
+            event.currentTarget.classList.add('active', 'text-primary', 'bg-white');
+            event.currentTarget.classList.remove('text-slate-400');
+        }
+
+        document.querySelectorAll('[data-lucide="copy"]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const text = btn.closest('div').querySelector('span').innerText;
+                navigator.clipboard.writeText(text).then(() => alert('Copiado para a área de transferência!'));
+            });
+        });
+
+        const modal1 = document.getElementById('donation-modal');
+        const overlay1 = document.getElementById('modal-overlay');
+        const modal2 = document.getElementById('urgency-modal');
+        const overlay2 = document.getElementById('urgency-overlay');
+        const modal3 = document.getElementById('checkout-modal');
+        const overlay3 = document.getElementById('checkout-overlay');
+        const modalLoading = document.getElementById('loading-modal');
+        const modalResult = document.getElementById('payment-result-modal');
+        const mainContent = document.getElementById('main-content');
+
+        function openDonationModal() {
+            modal1.classList.remove('hidden');
+            mainContent.classList.add('blur-sm');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openUrgencyModal() {
+            modal1.classList.add('hidden');
+            modal2.classList.remove('hidden');
+            mainContent.classList.add('blur-sm');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openDonationModal() {
+            modal1.classList.remove('hidden');
+            mainContent.classList.add('blur-sm');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openUrgencyModal() {
+            modal1.classList.add('hidden');
+            modal2.classList.remove('hidden');
+            mainContent.classList.add('blur-sm');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openCheckoutModal(amount) {
+            modal1.classList.add('hidden');
+            modal3.classList.remove('hidden');
+            document.getElementById('checkout-amount').innerText = `R$ ${amount},00`;
+            mainContent.classList.add('blur-sm');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function continueWithCustomAmount() {
+            const amount = document.getElementById('custom-amount-input').value;
+            if (!amount) {
+                alert('Por favor, insira um valor.');
+                return;
+            }
+            openCheckoutModal(amount);
+        }
+
+        function toggleAnonymous(checkbox) {
+            const nameInput = document.getElementById('donor-name');
+            const whatsappInput = document.querySelector('input[placeholder="Apenas números"]');
+            if (checkbox.checked) {
+                nameInput.disabled = true;
+                nameInput.value = 'Anônimo';
+                whatsappInput.disabled = true;
+                whatsappInput.value = '';
+            } else {
+                nameInput.disabled = false;
+                nameInput.value = '';
+                whatsappInput.disabled = false;
+                whatsappInput.value = '';
+            }
+        }
+
+        function generatePix() {
+            modal3.classList.add('hidden');
+            modalLoading.classList.remove('hidden');
+
+            setTimeout(() => {
+                modalLoading.classList.add('hidden');
+                modalResult.classList.remove('hidden');
+            }, 2000);
+        }
+
+        function closeAllModals() {
+            modal1.classList.add('hidden');
+            modal2.classList.add('hidden');
+            modal3.classList.add('hidden');
+            modalLoading.classList.add('hidden');
+            modalResult.classList.add('hidden');
+            mainContent.classList.remove('blur-sm');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fechar modais ao clicar no overlay
+        [overlay1, overlay2, overlay3, document.querySelector('#loading-modal div:first-child'), document.getElementById('payment-overlay')].forEach(overlay => {
+            if (overlay) overlay.addEventListener('click', closeAllModals);
+        });
+
+        async function processPayment() {
+            // TESTE DE VIDA
+            console.log("Iniciando conexão com SmokePay...");
+
+            const modal3 = document.getElementById('checkout-modal');
+            if (modal3) modal3.classList.add('hidden');
+
+            const modal4 = document.getElementById('modal-4');
+            if (modal4) modal4.classList.remove('hidden');
+
+            try {
+                // CAPTURA O VALOR DO HTML
+                const amountElement = document.getElementById('checkout-amount');
+                if (!amountElement) throw new Error("Não foi possível encontrar o valor da doação na tela.");
+
+                // LIMPEZA RIGOROSA DO VALOR:
+                // 1. Remove "R$" e qualquer letra/símbolo que não seja número, vírgula ou ponto
+                // 2. Remove o ponto de milhar (ex: 1.000,00 -> 1000,00)
+                // 3. Troca a vírgula decimal por ponto (ex: 1000,00 -> 1000.00)
+                let amountText = amountElement.innerText.replace(/[^\d,.]/g, '');
+                amountText = amountText.replace(/\./g, '').replace(',', '.');
+
+                const finalAmount = parseFloat(amountText);
+
+                if (isNaN(finalAmount)) throw new Error("O valor da doação é inválido.");
+
+                console.log("Enviando dados para SmokePay... Valor:", finalAmount);
+
+                const response = await fetch('/api/pay', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        amount: finalAmount,
+                        description: 'Doação Samuel - Instituto Aliança do Bem',
+                        external_id: 'doacao_' + Date.now(),
+                        shop_id: 'instituto-alianca',
+                        expiration: 1800
+                    })
+                });
+
+                const result = await response.json();
+                console.log("Resposta da API:", result);
+
+                const pixData = result.data ? result.data : result;
+
+                if (pixData.pix_code && pixData.qrcode_url) {
+                    const qrElement = document.getElementById('pix-qrcode');
+                    const codeElement = document.getElementById('pix-code');
+
+                    if (qrElement) qrElement.src = pixData.qrcode_url;
+                    if (codeElement) codeElement.innerText = pixData.pix_code;
+
+                    const copyBtn = document.getElementById('copy-pix-button');
+                    if (copyBtn) {
+                        copyBtn.onclick = () => {
+                            navigator.clipboard.writeText(pixData.pix_code);
+                            const originalText = copyBtn.innerText;
+                            copyBtn.innerText = 'Copiado!';
+                            setTimeout(() => copyBtn.innerText = originalText, 2000);
+                        };
+                    }
+
+                    if (modal4) modal4.classList.add('hidden');
+                    const resultModal = document.getElementById('payment-result-modal');
+                    if (resultModal) {
+                        resultModal.classList.remove('hidden');
+                        resultModal.style.display = 'flex'; // Garante a visibilidade caso o CSS use display:none
+                    }
+
+                } else {
+                    throw new Error(result.message || "API não retornou QR Code");
+                }
+
+            } catch (e) {
+                console.error("ERRO:", e);
+                alert('Erro na API: ' + e.message);
+
+                if (modal4) modal4.classList.add('hidden');
+                if (modal3) modal3.classList.remove('hidden');
+            }
+        }
+
+    </script>
+</body>
+
+</html>
