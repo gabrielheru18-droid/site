@@ -958,7 +958,7 @@ async function processPayment() {
         console.log("Enviando dados para Gateway... Valor:", finalAmount);
 
         const nameInput = document.getElementById('donor-name');
-        const payerName = nameInput ? nameInput.value : 'Doador';
+        const payerName = (nameInput && nameInput.value.trim() !== '') ? nameInput.value : 'Doador';
 
         const response = await fetch('/api/pay', {
             method: 'POST',
@@ -987,7 +987,7 @@ async function processPayment() {
     }
 }
 
-// Certifica que a função está disponível globalmente para os botões do HTML
+// Certifica que a função está disponível globalmente
 window.processPayment = processPayment;
         
                 const result = await response.json();
