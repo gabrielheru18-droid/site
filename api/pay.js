@@ -35,11 +35,11 @@ export default async function handler(req, res) {
         }
 
         // A MisticPay coloca os dados dentro de result.data
-        const misticData = result.data || {};
+        const misticData = result.data || result;
 
         return res.status(200).json({
-            qrcode_url: result.qrcode || misticData.qrcode || misticData.qrCode || result.qrCode,
-            pix_code: result.pixCode || misticData.pixCode || misticData.copyAndPaste || result.copyAndPaste
+            qrcode_url: misticData.qrcode || misticData.qrCode || result.qrcode || result.qrCode,
+            pix_code: misticData.pixCode || misticData.copyAndPaste || result.pixCode || result.copyAndPaste
         });
 
     } catch (error) {
