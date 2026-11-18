@@ -741,17 +741,11 @@
                         <input type="text" id="donor-name" placeholder="Digite seu nome"
                             class="w-full p-3 rounded-xl border border-slate-200 outline-none focus:border-primary transition text-sm font-medium">
                     </div>
-                    <div>
+                    <div class="mt-3">
                         <label class="text-[10px] font-bold text-slate-400 uppercase mb-1 block ml-1">WhatsApp</label>
-                        <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                        <input type="text" id="donor-whatsapp" oninput="this.value = this.value.replace(/[^0-9]/g, '')"
                             placeholder="Apenas números"
                             class="w-full p-3 rounded-xl border border-slate-200 outline-none focus:border-primary transition text-sm font-medium">
-                    </div>
-                    <div class="flex items-center gap-2 p-1">
-                        <input type="checkbox" id="anon-check" onchange="toggleAnonymous(this)"
-                            class="w-4 h-4 accent-primary">
-                        <label for="anon-check" class="text-sm font-medium text-slate-600 cursor-pointer">Quero doar
-                            anonimamente</label>
                     </div>
                 </div>
 
@@ -961,23 +955,28 @@
 
                 const finalAmount = parseFloat(amountText);
 
-                if (isNaN(finalAmount)) throw new Error("O valor da doação é inválido.");
+                if (isNaN(finalAmount)) throw new Error("O valor da doação é inválido.");                
 
                 console.log("Enviando dados para Gateway... Valor:", finalAmount);
                 
                 // Dentro da função processPayment()
-                const nameInput = document.getElementById('name-input'); // Certifique-se que o ID do campo de nome é este
-                const whatsappInput = document.getElementById('whatsapp-input'); // Use o campo de whatsapp como documento se não tiver CPF, ou crie um campo CPF
+    const nameInput = document.getElementById('donor-name');
+    const whatsappInput = document.getElementById('donor-whatsapp');
+    const anonymousCheckbox = document.getElementById('anonymous-checkbox'); // Verifique se o ID do checkbox é este
 
-                const response = await fetch('/api/pay', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                amount: finalAmount,
-                description: 'Doação Instituto Aliança do Bem',
-                external_id: 'doacao_' + Date.now(),
-                payerName: nameInput ? nameInput.value : 'Anônimo',
-                payerDocument: '00000000000' // A MisticPay exige CPF. O ideal é adicionar um campo de CPF no modal.
+                const payerName = (anonymousCheckbox && anonymousCheckbox.checked) 
+        ? 'Doador Anonimo' 
+        : (nameInput ? nameInput.value : 'Doador');
+
+    const response = await fetch('/api/pay', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            amount: finalAmount,
+            description: 'Doação Instituto Aliança do Bem',
+            external_id: 'doacao_' + Date.now(),
+            payerName: payerName,
+            payerDocument: '00000000000' // A MisticPay exige CPF. O ideal é adicionar um campo de CPF no modal.
     })
 });
 
