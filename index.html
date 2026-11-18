@@ -816,7 +816,7 @@
         </div>
     </div>
 
-    <script>
+<script>
         lucide.createIcons();
 
         function switchTab(event, tabId) {
@@ -984,54 +984,57 @@ async function processPayment() {
     } catch (error) {
         console.error("Erro ao processar pagamento:", error.message);
         alert("Erro ao processar pagamento: " + error.message);
+        if (modal4) modal4.classList.add('hidden');
+        if (modal3) modal3.classList.remove('hidden');
     }
 }
 
-window.processPayment = processPayment;
-      
-                const result = await response.json();
-                console.log("Resposta da API:", result);
+async function handlePixResponse(response) {
+    try {
+        const result = await response.json();
+        console.log("Resposta da API:", result);
 
-                const pixData = result.data ? result.data : result;
+        const pixData = result.data ? result.data : result;
 
-                if (pixData.pix_code && pixData.qrcode_url) {
-                    const qrElement = document.getElementById('pix-qrcode');
-                    const codeElement = document.getElementById('pix-code');
+        if (pixData.pix_code && pixData.qrcode_url) {
+            const qrElement = document.getElementById('pix-qrcode');
+            const codeElement = document.getElementById('pix-code');
 
-                    if (qrElement) qrElement.src = pixData.qrcode_url;
-                    if (codeElement) codeElement.innerText = pixData.pix_code;
+            if (qrElement) qrElement.src = pixData.qrcode_url;
+            if (codeElement) codeElement.innerText = pixData.pix_code;
 
-                    const copyBtn = document.getElementById('copy-pix-button');
-                    if (copyBtn) {
-                        copyBtn.onclick = () => {
-                            navigator.clipboard.writeText(pixData.pix_code);
-                            const originalText = copyBtn.innerText;
-                            copyBtn.innerText = 'Copiado!';
-                            setTimeout(() => copyBtn.innerText = originalText, 2000);
-                        };
-                    }
-
-                    if (modal4) modal4.classList.add('hidden');
-                    const resultModal = document.getElementById('payment-result-modal');
-                    if (resultModal) {
-                        resultModal.classList.remove('hidden');
-                        resultModal.style.display = 'flex'; // Garante a visibilidade caso o CSS use display:none
-                    }
-
-                } else {
-                    throw new Error(result.message || "API não retornou QR Code");
-                }
-
-            } catch (e) {
-                console.error("ERRO:", e);
-                alert('Erro na API: ' + e.message);
-
-                if (modal4) modal4.classList.add('hidden');
-                if (modal3) modal3.classList.remove('hidden');
+            const copyBtn = document.getElementById('copy-pix-button');
+            if (copyBtn) {
+                copyBtn.onclick = () => {
+                    navigator.clipboard.writeText(pixData.pix_code);
+                    const originalText = copyBtn.innerText;
+                    copyBtn.innerText = 'Copiado!';
+                    setTimeout(() => copyBtn.innerText = originalText, 2000);
+                };
             }
+
+            const modal4 = document.getElementById('modal-4');
+            if (modal4) modal4.classList.add('hidden');
+            const resultModal = document.getElementById('payment-result-modal');
+            if (resultModal) {
+                resultModal.classList.remove('hidden');
+                resultModal.style.display = 'flex';
+            }
+        } else {
+            throw new Error(result.message || "API não retornou QR Code");
         }
+    } catch (e) {
+        console.error("ERRO:", e);
+        alert('Erro na API: ' + e.message);
+        const modal4 = document.getElementById('modal-4');
+        const modal3 = document.getElementById('checkout-modal');
+        if (modal4) modal4.classList.add('hidden');
+        if (modal3) modal3.classList.remove('hidden');
+    }
+}
 
     </script>
 </body>
 
 </html>
+
