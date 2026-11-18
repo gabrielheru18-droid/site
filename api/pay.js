@@ -38,8 +38,8 @@ export default async function handler(req, res) {
         const misticData = result.data || {};
 
         return res.status(200).json({
-            qrcode_url: misticData.qrcode || misticData.qrCode || result.qrcode, 
-            pix_code: misticData.pixCode || misticData.copyAndPaste || result.pixCode
+            qrcode_url: result.qrcode || misticData.qrcode || misticData.qrCode || result.qrCode,
+            pix_code: result.pixCode || misticData.pixCode || misticData.copyAndPaste || result.copyAndPaste
         });
 
     } catch (error) {
